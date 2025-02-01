@@ -1,9 +1,9 @@
 # masya
-Начинаем установку утилиты wget. Вводим команду sudo yum install wget. Происходит ошибка, начинаем ее исправление
+Начинаем установку утилиты `wget`. Вводим команду `sudo yum install wget`. Происходит ошибка, начинаем ее исправление
 
 ![image](https://github.com/user-attachments/assets/7444c749-516c-417a-9fc2-e44262c9b851)
 
-Вводим команду su root, после заходим в конфигурационный файл vi /etc/sudoers и производим изменения
+Вводим команду `su root`, после заходим в конфигурационный файл `vi /etc/sudoers` и производим изменения
 
 ![image](https://github.com/user-attachments/assets/3648054e-0f98-4ca1-adfa-914b80650abb)
 
