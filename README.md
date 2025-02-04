@@ -1,6 +1,5 @@
 # masya
 Вводим команду `sudo yum install wget`
-
 для установки утилиты wget. Возникает ошибка, что указывает на проблемы с правами доступа, начинаем ее исправление.
 
 ![image](https://github.com/user-attachments/assets/7444c749-516c-417a-9fc2-e44262c9b851)
