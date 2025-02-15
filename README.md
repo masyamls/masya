@@ -33,7 +33,51 @@ Cоглашаемся, чтобы завершить процесс устано
 
 Запускаем Docker с помощью команды:  `sudo systemctl enable docker --now`
 
-systemctl enable позволяет автоматически запускать Docker
-опция --now значит, что сервис будет запущен сразу после выполнения команды
-
 ![image](https://github.com/user-attachments/assets/177bc2db-5c30-4eac-8648-5b468329ec29)
+
+
+`COMVER=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep 'tag_name' | cut -d\" -f4)`
+вся команда получает последнюю версию Docker Compose из ответа API GitHub и сохраняет её значение в переменную `COMVER`.
+
+`sudo curl -L "https://github.com/docker/compose/releases/download/$COMVER/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose` - эта команда загружает файл последней версии Docker Compose и помещает его в каталог /usr/bin/ с именем docker-compose.
+
+Команда `sudo chmod +x /usr/bin/docker-compose` изменяет права доступа к файлу docker-compose, который находится в каталоге /usr/bin.
+
+Команда `docker-compose --version` выводит текущую установленную версию Docker Compose (Docker Compose version v2.33.0)
+
+![image](https://github.com/user-attachments/assets/852d58c4-bfc8-42cb-82c0-db185fa893dd)
+
+Команда git clone https://github.com/skl256/grafana_stack_for_docker.git используется для создания локальной копии репозитория, находящегося на GitHub. После выполнения этой команды в текущем каталоге будет создан новый каталог с именем grafana_stack_for_docker, в который будет скопировано содержимое удаленного репозитория.
+
+![image](https://github.com/user-attachments/assets/6b55e5ca-c15c-4b1e-94e4-d3966c3a4e2c)
+
+Выполнили команду `cd grafana_stack_for_docker`, чтобы перейти в каталог, который был создан в результате клонирования.
+
+![image](https://github.com/user-attachments/assets/22742d0b-c063-4a21-a846-faf6e82258c2)
+
+`sudo mkdir -p /mnt/common_volume/swarm/grafana/config`. После выполнения этой команды будет создан каталог config по указанному пути, а также все необходимые родительские каталоги, если они отсутствовали.
+
+![image](https://github.com/user-attachments/assets/2df3c7b3-512a-4b47-836f-92ef55f37da4)
+
+`sudo mkdir -p /mnt/common_volume/grafana/{grafana-config,grafana-data,prometheus-data}`. После выполнения этой команды будет создан каталог grafana по пути /mnt/common_volume, если он не существует, а также три подкаталога grafana-config, grafana-data и prometheus-data внутри него.
+
+![image](https://github.com/user-attachments/assets/36052422-e89b-4419-9cc5-c5ab7bfb8223)
+
+`sudo chown -R $(id -u):$(id -g) {/mnt/common_volume/swarm/grafana/config,/mnt/common_volume/grafana}`. После выполнения этой команды текущий пользователь станет владельцем и группы для каталогов config и grafana, а также всех их содержимых. 
+
+![image](https://github.com/user-attachments/assets/4e95ac2e-c5f0-4ca8-b66a-4504d12b351e)
+
+`touch /mnt/common_volume/grafana/grafana-config/grafana.ini`. После выполнения этой команды будет создан пустой файл grafana.ini в каталоге grafana-config
+![image](https://github.com/user-attachments/assets/1428c7eb-40a7-4d1b-bff5-a7ede55e7aa9)
+
+`cp config/* /mnt/common_volume/swarm/grafana/config/`. После выполнения этой команды все файлы из каталога config будут скопированы в каталог /mnt/common_volume/swarm/grafana/config/.
+![image](https://github.com/user-attachments/assets/dae22369-8ef7-4280-b46e-40a27aa573fb)
+
+`mv grafana.yaml docker-compose.yaml`. После выполнения этой команды файл grafana.yaml будет переименован в docker-compose.yaml.
+![image](https://github.com/user-attachments/assets/fe9fbefc-fd2b-4994-8bf2-1002b47ea941)
+
+`sudo docker compose up -d`/ . Docker Compose начинает создавать и запускать все сервисы, указанные в вашем docker-compose.yml файле.
+![image](https://github.com/user-attachments/assets/84f33dd6-2263-4a20-8a64-ece71f31c772)
+![image](https://github.com/user-attachments/assets/2fd54fca-1a92-4520-846b-d418b62a733a)
+
+
