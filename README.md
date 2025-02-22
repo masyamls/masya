@@ -93,18 +93,18 @@ Cоглашаемся, чтобы завершить процесс устано
 Заходим в `vi docker-compose.yaml` и выходим без сохранения
 ![image](https://github.com/user-attachments/assets/d74fed06-7e3f-4ad8-aee4-5ba8e7668bc3)
 
-Команда `sudo docker-compose stop` используется для остановки работающих контейнеров, определенных в файле docker-compose.yml. 
+Команда `sudo docker-compose stop` используется для остановки запущенных контейнеров
 ![image](https://github.com/user-attachments/assets/bb4529f3-f929-49c5-a2a1-cedb08cc3f43)
 
-Команда `sudo docker-compose up -d` используется для запуска контейнеров, определенных в файле docker-compose.yml, в фоновом режиме.
+ `sudo docker-compose up -d` - снова запустили контейнеры, и они были успешно запущены
 ![image](https://github.com/user-attachments/assets/0ae961fc-a9e2-4a1c-918b-3a5b6cd00d62)
 
-Команда sudo docker-compose down используется для остановки и удаления контейнеров, создаваемых с помощью Docker Compose, а также для удаления сетей и томов, связанных с этими контейнерами.
+Команда `sudo docker-compose down` - остановили и удалили все контейнеры
 ![image](https://github.com/user-attachments/assets/97513e42-2f7a-4d24-b181-f197d91573c4)
 
-Команда `sudo docker-compose up -d` используется для запуска контейнеров, определенных в файле docker-compose.yml, в фоновом режиме.
+Команда `sudo docker-compose up -d`- снова запустили контейнеры
 ![image](https://github.com/user-attachments/assets/a6acaef0-dbcf-43a8-81bb-4fcc024ca476)
 
-Команда sudo docker-compose ps используется для отображения списка контейнеров, управляемых Docker Compose
+Команда `sudo docker-compose ps`- вывели список запущенных контейнеров с их статусами и портами
 
 ![image](https://github.com/user-attachments/assets/4455687e-5029-4512-9f12-3868b66b90e5)
