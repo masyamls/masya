@@ -86,17 +86,25 @@ Cоглашаемся, чтобы завершить процесс устано
 
 ![image](https://github.com/user-attachments/assets/0ef344a5-cd6d-4c0f-910e-3c41bd369d79)
 
+Переходи в каталог с помощью команды `cd grafana_stack_for_docker`. 
+Команда `sudo docker compose up -d` используется для запуска контейнеров Docker.
 ![image](https://github.com/user-attachments/assets/8021d304-56de-4fce-963b-e18f9a1d5e33)
 
+Заходим в `vi docker-compose.yaml` и выходим без сохранения
 ![image](https://github.com/user-attachments/assets/d74fed06-7e3f-4ad8-aee4-5ba8e7668bc3)
 
-
+Команда `sudo docker-compose stop` используется для остановки работающих контейнеров, определенных в файле docker-compose.yml. 
 ![image](https://github.com/user-attachments/assets/bb4529f3-f929-49c5-a2a1-cedb08cc3f43)
 
+Команда `sudo docker-compose up -d` используется для запуска контейнеров, определенных в файле docker-compose.yml, в фоновом режиме.
 ![image](https://github.com/user-attachments/assets/0ae961fc-a9e2-4a1c-918b-3a5b6cd00d62)
 
+Команда sudo docker-compose down используется для остановки и удаления контейнеров, создаваемых с помощью Docker Compose, а также для удаления сетей и томов, связанных с этими контейнерами.
 ![image](https://github.com/user-attachments/assets/97513e42-2f7a-4d24-b181-f197d91573c4)
 
+Команда `sudo docker-compose up -d` используется для запуска контейнеров, определенных в файле docker-compose.yml, в фоновом режиме.
 ![image](https://github.com/user-attachments/assets/a6acaef0-dbcf-43a8-81bb-4fcc024ca476)
+
+Команда sudo docker-compose ps используется для отображения списка контейнеров, управляемых Docker Compose
 
 ![image](https://github.com/user-attachments/assets/4455687e-5029-4512-9f12-3868b66b90e5)
