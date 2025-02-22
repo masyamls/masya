@@ -19,8 +19,7 @@
 
 ![image](https://github.com/user-attachments/assets/dc9c6ec0-7be5-4f72-868e-5c76f0d45806)
 
-Выкачиваем репозиторий с сайта 
-`sudo wget -P /etc/yum.repos.d/ https://download.docker.com/linux/centos/docker-ce.repo`
+`sudo wget -P /etc/yum.repos.d/ https://download.docker.com/linux/centos/docker-ce.repo` - выкачиваем репозиторий с сайта
 
 ![image](https://github.com/user-attachments/assets/94c7771f-91cd-425d-a417-3559927d7501)
 
@@ -49,7 +48,7 @@ Cоглашаемся, чтобы завершить процесс устано
 
 ![image](https://github.com/user-attachments/assets/852d58c4-bfc8-42cb-82c0-db185fa893dd)
 
-Команда git clone https://github.com/skl256/grafana_stack_for_docker.git используется для создания локальной копии репозитория, находящегося на GitHub. После выполнения этой команды в текущем каталоге будет создан новый каталог с именем grafana_stack_for_docker, в который будет скопировано содержимое удаленного репозитория.
+Команда `git clone https://github.com/skl256/grafana_stack_for_docker.git` используется для создания локальной копии репозитория, находящегося на GitHub. После выполнения этой команды в текущем каталоге будет создан новый каталог с именем grafana_stack_for_docker, в который будет скопировано содержимое удаленного репозитория.
 
 ![image](https://github.com/user-attachments/assets/6b55e5ca-c15c-4b1e-94e4-d3966c3a4e2c)
 
@@ -79,6 +78,9 @@ Cоглашаемся, чтобы завершить процесс устано
 ![image](https://github.com/user-attachments/assets/fe9fbefc-fd2b-4994-8bf2-1002b47ea941)
 
 `sudo docker compose up -d`/ . Docker Compose начинает создавать и запускать все сервисы, указанные в docker-compose.yml файле.
+флаг -d:
+Ctrl + C: Прерывает (остановливает) выполнение текущей команды или процесса в терминале. Если запустили контейнеры без флага -d, использование Ctrl + C остановит их.
+Ctrl + Z: Приостанавливает выполнение текущего процесса и переводит его в фоновый режим. Это позволяе вернуться к терминалу и продолжить работу, но при этом процесс останется приостановленным. Чтобы вернуть процесс в активное состояние, можно использовать команду fg.
 
 ![image](https://github.com/user-attachments/assets/84f33dd6-2263-4a20-8a64-ece71f31c772)
 ![image](https://github.com/user-attachments/assets/2fd54fca-1a92-4520-846b-d418b62a733a)
