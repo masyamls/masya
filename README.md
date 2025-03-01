@@ -111,9 +111,19 @@ Ctrl + Z: Приостанавливает выполнение текущего
 
 ![image](https://github.com/user-attachments/assets/4455687e-5029-4512-9f12-3868b66b90e5)
 
-https://github.com/masyamls/masya.git
+git clone https://github.com/masyamls/masya.git - 
+
 ![image](https://github.com/user-attachments/assets/045dff45-4d71-4c07-8c54-ecf1e92c318f)
 
 cd /mnt/common_volume/swarm/grafana/config
+
 ![image](https://github.com/user-attachments/assets/cff3577a-a36c-44ed-97e8-9d756fda1b88)
+
+ls
+
+![image](https://github.com/user-attachments/assets/812accc9-78f7-44cd-8f09-ae19a15f99d4)
+
+cp docker-compose.yaml  docker-compose.yaml1
+
+![image](https://github.com/user-attachments/assets/4dd35db2-efea-4afe-b0ed-0bf70740c030)
 
