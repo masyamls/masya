@@ -1,4 +1,4 @@
-# masya
+![image](https://github.com/user-attachments/assets/82bdc6e9-9bd6-4e21-b94b-3434128e5a71)# masya
 Вводим команду `sudo yum install wget`
 для установки утилиты wget. Возникает ошибка, что указывает на проблемы с правами доступа, начинаем ее исправление.
 
@@ -110,3 +110,10 @@ Ctrl + Z: Приостанавливает выполнение текущего
 Команда `sudo docker-compose ps`- вывели список запущенных контейнеров с их статусами и портами
 
 ![image](https://github.com/user-attachments/assets/4455687e-5029-4512-9f12-3868b66b90e5)
+
+https://github.com/masyamls/masya.git
+![image](https://github.com/user-attachments/assets/045dff45-4d71-4c07-8c54-ecf1e92c318f)
+
+cd /mnt/common_volume/swarm/grafana/config
+![image](https://github.com/user-attachments/assets/cff3577a-a36c-44ed-97e8-9d756fda1b88)
+
