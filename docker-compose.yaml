@@ -1,0 +1,146 @@
+version: "3"
+
+services:
+
+  node-exporter:
+    image: prom/node-exporter
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    container_name: exporter
+    hostname: exporter
+    command:
+      - --path.procfs=/host/proc
+      - --path.sysfs=/host/sys
+      - --collector.filesystem.ignored-mount-points
+      - ^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootfs/run/docker/netns|rootfs/var/lib/docker/aufs)($$|/)
+    ports:
+      - 9100:9100
+    restart: unless-stopped
+    environment:
+      TZ: "Europe/Moscow"
+    networks:
+      - default
+
+  grafana:
+    image: "grafana/grafana-oss:10.2.2"
+    ports:
+      - 3000:3000
+    volumes:
+      # touch /mnt/common_volume/grafana/grafana-config/grafana.ini;
+      # mkdir -p /mnt/common_volume/grafana/{grafana-config,grafana-data};
+      - /mnt/common_volume/grafana/grafana-config:/etc/grafana
+      - /mnt/common_volume/grafana/grafana-data:/var/lib/grafana
+    user: "root"
+    environment:
+      # Uncomment GF_SERVER_DOMAIN, GF_SERVER_ROOT_URL for using reserve proxy
+      #GF_SERVER_DOMAIN: "grafana.domain.example" # change "grafana.domain.example" to your domain
+      #GF_SERVER_ROOT_URL: "https://grafana.domain.example/" # change "grafana.domain.example" to your domain
+      GF_RENDERING_SERVER_URL: "http://grafana-image-renderer:8081/render"
+      GF_RENDERING_CALLBACK_URL: "http://grafana:3000/"
+      GF_UNIFIED_ALERTING_SCREENSHOTS_CAPTURE: "true"
+      GF_LOG_FILTERS: "rendering:debug"
+      # Uncomment for using PostgreSQL (recommended) instead SQLite
+      #GF_DATABASE_TYPE: "postgres"
+      #GF_DATABASE_HOST: "postgres:5432" # change "postgres:5432" to your PostgreSQL database host and port
+      #GF_DATABASE_NAME: "postgres" # change "postgres" to your database name
+      #GF_DATABASE_USER: "postgres" # change "postgres" to your database user name
+      #GF_DATABASE_PASSWORD: "postgres" # change "postgres" to your database password # or use GF_DATABASE_PASSWORD
+      #GF_DATABASE_PASSWORD__FILE: "/run/secrets/grafana_database_password" # for docker secrets # or use GF_DATABASE_PASSWORD
+      #GF_DATABASE_SSL_MODE: "disable"
+    # Uncomment for using docker secrets 
+    #secrets:
+    #  - grafana_database_password
+    deploy:
+      mode: replicated
+      replicas: 1
+      update_config:
+        order: stop-first
+      resources:
+        limits:
+          memory: 1024M
+                   
+  prometheus:
+    image: "prom/prometheus:v2.48.0"
+    ports:
+      - 9090:9090
+    volumes:
+      # touch /mnt/common_volume/swarm/grafana/config/{prometheus.yaml,web-config.yaml};
+      # mkdir -p /mnt/common_volume/grafana/prometheus-data
+      - /mnt/common_volume/swarm/grafana/config/prometheus.yaml:/etc/prometheus/prometheus.yaml:ro
+      - /mnt/common_volume/swarm/grafana/config/web-config.yaml:/etc/prometheus/web-config.yaml:ro
+      - /mnt/common_volume/grafana/prometheus-data:/prometheus
+    user: "root"
+    # Uncomment for using docker secrets
+    #secrets:
+    #  - node_exporter_password
+    #  - grafana_prometheus_password
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yaml"
+      - "--web.config.file=/etc/prometheus/web-config.yaml"
+      - "--storage.tsdb.retention.time=7d"
+    deploy:
+      mode: replicated
+      replicas: 1
+      update_config:
+        order: stop-first
+      resources:
+        limits:
+          memory: 1024M
+
+  vmagent:
+    container_name: vmagent
+    image: victoriametrics/vmagent:v1.105.0
+    depends_on:
+      - "victoriametrics"
+    ports:
+      - 8429:8429
+    volumes:
+      - vmagentdata:/vmagentdata
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - "--promscrape.config=/etc/prometheus/prometheus.yml"
+      - "--remoteWrite.url=http://victoriametrics:8428/api/v1/write"
+    restart: always
+  # VictoriaMetrics instance, a single process responsible for
+  # storing metrics and serve read requests.
+  victoriametrics:
+    container_name: victoriametrics
+    image: victoriametrics/victoria-metrics:v1.105.0
+    ports:
+      - 8428:8428
+      - 8089:8089
+      - 8089:8089/udp
+      - 2003:2003
+      - 2003:2003/udp
+      - 4242:4242
+    volumes:
+      - vmdata:/storage
+    command:
+      - "--storageDataPath=/storage"
+      - "--graphiteListenAddr=:2003"
+      - "--opentsdbListenAddr=:4242"
+      - "--httpListenAddr=:8428"
+      - "--influxListenAddr=:8089"
+      - "--vmalert.proxyURL=http://vmalert:8880"
+    restart: always
+
+volumes:
+  vmagentdata: {}
+  vmdata: {}
+  grafanadata: {}
+networks:
+  vm_net:
+
+# Uncomment for using docker secrets
+# create docker secret first: docker secret create [OPTIONS] SECRET [file|-]
+# https://docs.docker.com/engine/reference/commandline/secret_create/
+# if you create secret from stdin use Ctrl+D after input, do not use Enter
+#secrets:
+#  grafana_database_password:
+#    external: true
+#  node_exporter_password:
+#    external: true
+#  grafana_prometheus_password:
+#    external: true

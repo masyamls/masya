@@ -1,0 +1,15 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+
+# node exporter (https://github.com/prometheus/node_exporter)
+- job_name: 'node'
+  static_configs:
+  - targets: ['exporter:9100', '192.168.100.4:9100', '192.168.100.6:9100'] # change 192.168.100.x to your nodes IPs
+  basic_auth:
+    username: 'admin' # change
+    password: 'admin' # change # or use password_file instead (docker secrets)
+    # password_file: '/run/secrets/node_exporter_password'
+
+
