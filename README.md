@@ -1,4 +1,3 @@
-![image](https://github.com/user-attachments/assets/82bdc6e9-9bd6-4e21-b94b-3434128e5a71)# masya
 Вводим команду `sudo yum install wget`
 для установки утилиты wget. Возникает ошибка, что указывает на проблемы с правами доступа, начинаем ее исправление.
 
@@ -108,22 +107,27 @@ Ctrl + Z: Приостанавливает выполнение текущего
 ![image](https://github.com/user-attachments/assets/a6acaef0-dbcf-43a8-81bb-4fcc024ca476)
 
 Команда `sudo docker-compose ps`- вывели список запущенных контейнеров с их статусами и портами
-
 ![image](https://github.com/user-attachments/assets/4455687e-5029-4512-9f12-3868b66b90e5)
 
-git clone https://github.com/masyamls/masya.git - 
-
-![image](https://github.com/user-attachments/assets/045dff45-4d71-4c07-8c54-ecf1e92c318f)
-
-cd /mnt/common_volume/swarm/grafana/config
-
-![image](https://github.com/user-attachments/assets/cff3577a-a36c-44ed-97e8-9d756fda1b88)
-
-ls
-
-![image](https://github.com/user-attachments/assets/812accc9-78f7-44cd-8f09-ae19a15f99d4)
+переход в папку `cd grafana_stack_for_docker` и выполнение комнады `git clone https://github.com/masyamls/masya.git`
+![image](https://github.com/user-attachments/assets/223cf3eb-c58f-48aa-bd8c-497e3c94f533)
 
 cp docker-compose.yaml  docker-compose.yaml1
+![image](https://github.com/user-attachments/assets/3263039d-b5fb-494d-a85f-e68be62fb437)
 
-![image](https://github.com/user-attachments/assets/4dd35db2-efea-4afe-b0ed-0bf70740c030)
+cd /mnt/common_volume/swarm/grafana/config и cp prometheus.yaml  prometheus.yaml1
+![image](https://github.com/user-attachments/assets/cdc38987-4c41-4b3b-8ccd-ae9a2b7e94f9)
 
+sudo docker-compose down и sudo docker-compose up -d
+![image](https://github.com/user-attachments/assets/f67004f2-eaf5-488b-a9bf-64377e5e493c)
+
+sudo docker-compose stop
+![image](https://github.com/user-attachments/assets/63acc442-1c09-48ee-86eb-82ac74254307)
+
+sudo vi prometheus.yaml
+![image](https://github.com/user-attachments/assets/d3112ee1-50a8-4c5c-b958-7621d5b57da9)
+
+sudo docker-compose up -d
+![image](https://github.com/user-attachments/assets/5a6ef78e-b2df-493e-bcd5-2685f295fcdf)
+
+Grafana
