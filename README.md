@@ -128,9 +128,11 @@ sudo vi prometheus.yaml
 ![image](https://github.com/user-attachments/assets/d3112ee1-50a8-4c5c-b958-7621d5b57da9)
 
 sudo docker-compose up -d
+
 ![image](https://github.com/user-attachments/assets/5a6ef78e-b2df-493e-bcd5-2685f295fcdf)
 
-Grafana
+```Grafana```
+
 переходим на сайт localhost:3000
 User & Password GRAFANA: admin
 После того как зашли, нужно создать Dashboards. Путь где его можно создать Home -> Connections -> Data sources -> Add data source
