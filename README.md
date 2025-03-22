@@ -108,40 +108,41 @@ Ctrl + Z: Приостанавливает выполнение текущего
 Команда `sudo docker-compose ps`- вывели список запущенных контейнеров с их статусами и портами
 ![image](https://github.com/user-attachments/assets/4455687e-5029-4512-9f12-3868b66b90e5)
 
-переход в папку `cd grafana_stack_for_docker` и выполнение комнады `git clone https://github.com/masyamls/masya.git`
+Перемещаемся в папку `cd grafana_stack_for_docker` загружаем репозиторий masya с GitHub в командой `git clone https://github.com/masyamls/masya.git`
 ![image](https://github.com/user-attachments/assets/223cf3eb-c58f-48aa-bd8c-497e3c94f533)
 
-cp docker-compose.yaml  docker-compose.yaml1
+Создаем копию файла(docker-compose.yaml) командой `cp docker-compose.yaml  docker-compose.yaml1`
 ![image](https://github.com/user-attachments/assets/3263039d-b5fb-494d-a85f-e68be62fb437)
 
-cd /mnt/common_volume/swarm/grafana/config и cp prometheus.yaml  prometheus.yaml1
+Перемещаемся в директорию, где находятся конфигурационные файлы `cd /mnt/common_volume/swarm/grafana/config` и создаем копию файла (prometheus.yaml) следущей командой `cp prometheus.yaml  prometheus.yaml1`
 ![image](https://github.com/user-attachments/assets/cdc38987-4c41-4b3b-8ccd-ae9a2b7e94f9)
 
-sudo docker-compose down и sudo docker-compose up -d
+останавливает и удаляет все контейнеры, которые были запущены с помощью Docker Compose командой `sudo docker-compose down` и  далее запускаем контейнеры `sudo docker-compose up -d`
 ![image](https://github.com/user-attachments/assets/f67004f2-eaf5-488b-a9bf-64377e5e493c)
 
-sudo docker-compose stop
+`sudo docker-compose stop` - останавливаем работающие контейнеры
 ![image](https://github.com/user-attachments/assets/63acc442-1c09-48ee-86eb-82ac74254307)
 
-sudo vi prometheus.yaml
+Вносим необходимые изменения `sudo vi prometheus.yaml`(после редактирования нажмимаем Esc, затем :wq и Enter, чтобы сохранить изменения и выйти.)
 ![image](https://github.com/user-attachments/assets/d3112ee1-50a8-4c5c-b958-7621d5b57da9)
 
-sudo docker-compose up -d
+Снова запускаем контейнеры `sudo docker-compose up -d`
 
 ![image](https://github.com/user-attachments/assets/5a6ef78e-b2df-493e-bcd5-2685f295fcdf)
 
-```Grafana```
+`Grafana`
 
-переходим на сайт localhost:3000
-User & Password GRAFANA: admin
-После того как зашли, нужно создать Dashboards. Путь где его можно создать Home -> Connections -> Data sources -> Add data source
-
-Где нужно нажать на +Add visualization -> Configure a new data source -> Prometheus
-
-Настройки: прометеуса: http://prometheus:9090 Authentication: Basic authentication После того как все настроили нажимаем Save & test
-
-Cоздав Dashboards импортируем его: Путь где его можно импортировать Home -> Dashboards -> Import dashboard
-
-В поле нужно написать 1860 -> Load Select Prometheus -> Import -> Название Prometheus
+переходим на сайт ``localhost:3000``
+User & Password GRAFANA: ``admin``
+После того как зашли, нужно создать Dashboards. 
+``Home -> Connections -> Data sources -> Add data source``
+После нажимаем ``+Add visualization -> Configure a new data source -> Prometheus``
+Настройки прометеуса: 
+http://prometheus:9090 
+Authentication: Basic authentication 
+Save & test
+Cоздав Dashboards импортируем его: Путь где его можно импортировать ``Home -> Dashboards -> Import dashboard``
+Далее
+``1860 -> Load Select Prometheus -> Import -> Название Prometheus``
 
 ![image](https://github.com/user-attachments/assets/18c48c5e-91d0-4ee5-a5f8-45f04361ab14)
