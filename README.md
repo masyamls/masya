@@ -1,5 +1,6 @@
 Вводим команду `sudo yum install wget`
 для установки утилиты wget. Возникает ошибка, что указывает на проблемы с правами доступа, начинаем ее исправление.
+
 ![image](https://github.com/user-attachments/assets/7444c749-516c-417a-9fc2-e44262c9b851)
 
 Вводим команду `su root`.
@@ -88,6 +89,7 @@ Ctrl + Z: Приостанавливает выполнение текущего
 
 Переходи в каталог с помощью команды `cd grafana_stack_for_docker`. 
 Команда `sudo docker compose up -d` используется для запуска контейнеров Docker.
+
 ![image](https://github.com/user-attachments/assets/8021d304-56de-4fce-963b-e18f9a1d5e33)
 
 Заходим в `vi docker-compose.yaml` и выходим без сохранения
@@ -109,12 +111,14 @@ Ctrl + Z: Приостанавливает выполнение текущего
 ![image](https://github.com/user-attachments/assets/4455687e-5029-4512-9f12-3868b66b90e5)
 
 Перемещаемся в папку `cd grafana_stack_for_docker` загружаем репозиторий masya с GitHub в командой `git clone https://github.com/masyamls/masya.git`
+
 ![image](https://github.com/user-attachments/assets/223cf3eb-c58f-48aa-bd8c-497e3c94f533)
 
 Создаем копию файла(docker-compose.yaml) командой `cp docker-compose.yaml  docker-compose.yaml1`
 ![image](https://github.com/user-attachments/assets/3263039d-b5fb-494d-a85f-e68be62fb437)
 
 Перемещаемся в директорию, где находятся конфигурационные файлы `cd /mnt/common_volume/swarm/grafana/config` и создаем копию файла (prometheus.yaml) следущей командой `cp prometheus.yaml  prometheus.yaml1`
+
 ![image](https://github.com/user-attachments/assets/cdc38987-4c41-4b3b-8ccd-ae9a2b7e94f9)
 
 останавливает и удаляет все контейнеры, которые были запущены с помощью Docker Compose командой `sudo docker-compose down` и  далее запускаем контейнеры `sudo docker-compose up -d`
@@ -130,19 +134,28 @@ Ctrl + Z: Приостанавливает выполнение текущего
 
 ![image](https://github.com/user-attachments/assets/5a6ef78e-b2df-493e-bcd5-2685f295fcdf)
 
-`Grafana`
+```Grafana```
 
 переходим на сайт ``localhost:3000``
+
 User & Password GRAFANA: ``admin``
+
 После того как зашли, нужно создать Dashboards. 
+
 ``Home -> Connections -> Data sources -> Add data source``
+
 После нажимаем ``+Add visualization -> Configure a new data source -> Prometheus``
+
 Настройки прометеуса: 
+
 http://prometheus:9090 
 Authentication: Basic authentication 
 Save & test
-Cоздав Dashboards импортируем его: Путь где его можно импортировать ``Home -> Dashboards -> Import dashboard``
+
+Cоздав Dashboards импортируем его: ``Home -> Dashboards -> Import dashboard``
+
 Далее
+
 ``1860 -> Load Select Prometheus -> Import -> Название Prometheus``
 
 ![image](https://github.com/user-attachments/assets/18c48c5e-91d0-4ee5-a5f8-45f04361ab14)
