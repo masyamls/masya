@@ -169,9 +169,11 @@ Cоздав Dashboards импортируем его: ``Home -> Dashboards -> Im
 ![image](https://github.com/user-attachments/assets/dfcca027-5de3-4a67-bfd8-0ed2247df8ad)
 
 `echo -e "# TYPE light_metric1 gauge\nlight_metric1 60" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus`
+
 ![image](https://github.com/user-attachments/assets/6f2c570c-af65-412b-94b1-f506b6ef4d3f)
 
 `echo -e "# TYPE light_metric1 gauge\nlight_metric1 30" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus`
+
 ![image](https://github.com/user-attachments/assets/7b71ed21-f5a6-499f-9395-8478323eb8d6)
 
 Итог:
