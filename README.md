@@ -1,4 +1,4 @@
-Вводим команду `sudo yum install wget`
+ Вводим команду `sudo yum install wget`
 для установки утилиты wget. Возникает ошибка, что указывает на проблемы с правами доступа, начинаем ее исправление.
 
 ![image](https://github.com/user-attachments/assets/7444c749-516c-417a-9fc2-e44262c9b851)
@@ -160,18 +160,18 @@ Cоздав Dashboards импортируем его: ``Home -> Dashboards -> Im
 
 ![image](https://github.com/user-attachments/assets/18c48c5e-91d0-4ee5-a5f8-45f04361ab14)
 
-echo -e "# TYPE light_metric1 gauge\nlight_metric1 0" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus
+`echo -e "# TYPE light_metric1 gauge\nlight_metric1 0" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus`
 
 ![image](https://github.com/user-attachments/assets/4d1c7ef1-c5f8-4866-ac3c-7be7bd189b6b)
 
-[masya@localhost grafana_stack_for_docker]$ echo -e "# TYPE light_metric1 gauge\nlight_metric1 0" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus
+`echo -e "# TYPE light_metric1 gauge\nlight_metric1 0" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus`
 
 ![image](https://github.com/user-attachments/assets/dfcca027-5de3-4a67-bfd8-0ed2247df8ad)
 
-echo -e "# TYPE light_metric1 gauge\nlight_metric1 60" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus
+`echo -e "# TYPE light_metric1 gauge\nlight_metric1 60" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus`
 ![image](https://github.com/user-attachments/assets/6f2c570c-af65-412b-94b1-f506b6ef4d3f)
 
-echo -e "# TYPE light_metric1 gauge\nlight_metric1 30" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus
+`echo -e "# TYPE light_metric1 gauge\nlight_metric1 30" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus`
 ![image](https://github.com/user-attachments/assets/7b71ed21-f5a6-499f-9395-8478323eb8d6)
 
 Итог:
