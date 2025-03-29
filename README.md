@@ -160,16 +160,13 @@ Cоздав Dashboards импортируем его: ``Home -> Dashboards -> Im
 ![image](https://github.com/user-attachments/assets/18c48c5e-91d0-4ee5-a5f8-45f04361ab14)
 
 Запускаем контейнеры и вводим команду
-`echo -e "# TYPE light_metric1 gauge\nlight_metric1 0" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus`
+`echo -e "# TYPE light_metric1 gauge\nlight_metric1 0" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus` -  команда отправляет значение 0
 
 ![image](https://github.com/user-attachments/assets/4d1c7ef1-c5f8-4866-ac3c-7be7bd189b6b)
-
-`echo -e "# TYPE light_metric1 gauge\nlight_metric1 0" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus` -  команда отправляет значение 0
 
 `echo -e "# TYPE light_metric1 gauge\nlight_metric1 60" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus` -  команда отправляет значение 60
 
 `echo -e "# TYPE light_metric1 gauge\nlight_metric1 30" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus` - команда отправляет значение 30
-
 
 Итог:
 
