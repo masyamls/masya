@@ -147,12 +147,9 @@ User & Password GRAFANA: ``admin``
 После нажимаем ``+Add visualization -> Configure a new data source -> Prometheus``
 
 Настройки прометеуса: 
-
-http://prometheus:9090
-
-Authentication: Basic authentication
-
-Save & test
+1. http://prometheus:9090 
+2. Authentication: Basic authentication
+3. Save & test
 
 Cоздав Dashboards импортируем его: ``Home -> Dashboards -> Import dashboard``
 
