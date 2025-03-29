@@ -148,8 +148,10 @@ User & Password GRAFANA: ``admin``
 
 Настройки прометеуса: 
 
-http://prometheus:9090 
-Authentication: Basic authentication 
+http://prometheus:9090
+
+Authentication: Basic authentication
+
 Save & test
 
 Cоздав Dashboards импортируем его: ``Home -> Dashboards -> Import dashboard``
